@@ -15,6 +15,7 @@ if which brew > /dev/null; then export PATH="$(brew --prefix coreutils)/libexec/
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 #allow tab completion in the middle of a word
 setopt COMPLETE_IN_WORD

@@ -41,6 +41,7 @@ bindkey -v
 export BRAZIL_WORKSPACE_GITMODE=1
 
 export PATH="/apollo/env/SDETools/bin:$PATH"
+alias bb='/apollo/env/SDETools/bin/brazil-build'
 alias br='/apollo/env/SDETools/bin/brazil-runtime-exec'
 alias br-3rd-party="/apollo/env/BrazilThirdPartyTool/bin/brazil-third-party-tool"
 
@@ -50,6 +51,9 @@ alias vim="stty stop '' -ixoff; vim"
 setopt PROMPT_SUBST
 PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}
 %{$fg_bold[white]%}>%{$reset_color%} '
+
+alias rhel="ssh ${USER}.desktop.amazon.com"
+alias cloud="ssh ${USER}.aka.corp.amazon.com"
 
 RHEL_SSHFS_HOST="${USER}.desktop.amazon.com"
 RHEL_SSHFS_DIR="$HOME/rhel"
@@ -71,15 +75,34 @@ function mount-sshfs() {
     sshfs -p 22 ${username}@${hostname}:/ "$mount_point" -o "$options"
 }
 
-export SURVEY_MANAGER="$HOME/rhel/workplace/ckkernan/Survey/src/SurveyManagerWebsite/rails-root"
-export TECH_SURVEY="$HOME/rhel/workplace/ckkernan/Survey/src/SDESurveyWebsite/rails-root"
+export TRAWLER="/workplace/ckkernan/trawler/src/DesignSurveyWebsite/rails-root"
+export SURVEY_MANAGER="/workplace/ckkernan/survey/src/SurveyManagerWebsite/rails-root"
+export TECH_SURVEY="/workplace/ckkernan/survey/src/SDESurveyWebsite/rails-root"
+export FIRST_COMMIT="$HOME/rhel/workplace/ckkernan/FirstCommit/src/FirstCommitWebsite/rails-root"
+export REPORTING="/workplace/ckkernan/reporting/src/TechSurveyReporting"
+export ANALYTICS="/workplace/ckkernan/analytics/src/TechSurveyAnalyticsWebsite/rails-root"
+export TE_CLIENT="/workplace/ckkernan/trainer/src/TrainerEngineClient"
+export TE_WEBSITE="/workplace/ckkernan/trainer/src/TrainerEngineWebsite/rails-root"
 
 export PATH="$PATH:/Applications/MATLAB_R2014b.app/bin"
 
-export JAVA_HOME=`/usr/libexec/java_home`
+# export JAVA_HOME=`/usr/libexec/java_home`
 
 alias mysql-start="/usr/local/Cellar/mysql/5.6.22/support-files/mysql.server start"
 alias mysql-stop="/usr/local/Cellar/mysql/5.6.22/support-files/mysql.server stop"
 
 # export PATH=/Developer/NVIDIA/CUDA-6.5/bin:$PATH
 # export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-6.5/lib:$DYLD_LIBRARY_PATH
+
+export PATH="$PATH:$HOME/script"
+
+export NODE_BINARY_PATH="$HOME/.nodeenv/amazon-0.12.10/bin/node"
+export I_WANT_NO_DEVTOOLS_SUPPORT_NOW_AND_FOREVER="NODE_BINARY_PATH"
+export PHANTOMJS_BINARY=`which phantomjs`
+
+export TECH_SURVEY_DATA_DUMP="/Users/ckkernan/Downloads/tech_survey_2015_dump.json"
+export QUESTION_CATEGORY_RESPONSES="/Users/ckkernan/Downloads/survey_62_responses.json"
+export QUESTION_CATEGORIES_CONFIG="/workplace/ckkernan/tech-survey/src/TechSurveyAnalyticsWebsite/rails-root/config/leader_of_leaders_2015_v2.yml"
+export TECH_SURVEY_STRUCTURE="/workplace/ckkernan/tech-survey/src/TechSurveyAnalyticsWebsite/rails-root/survey_14.json"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

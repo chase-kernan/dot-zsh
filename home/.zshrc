@@ -33,6 +33,12 @@ setopt NO_BEEP
 autoload -U colors
 colors
 
+# configure fuzzy autocomplete on tab
+zstyle ':completion:*' matcher-list '' \
+    'm:{a-z\-}={A-Z\_}' \
+    'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
+    'r:[[:ascii:]]||[[:ascii:]]=** r:|=* m:{a-z\-}={A-Z\_}'
+
 export EDITOR=vim
 export P4EDITOR=vim
 
@@ -54,6 +60,7 @@ PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} 
 
 alias rhel="ssh ${USER}.desktop.amazon.com"
 alias cloud="ssh ${USER}.aka.corp.amazon.com"
+alias cloud-2="ssh dev-dsk-ckkernan-2b-88f49aa5.us-west-2.amazon.com"
 
 RHEL_SSHFS_HOST="${USER}.desktop.amazon.com"
 RHEL_SSHFS_DIR="$HOME/rhel"
@@ -95,6 +102,7 @@ alias mysql-stop="/usr/local/Cellar/mysql/5.6.22/support-files/mysql.server stop
 # export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-6.5/lib:$DYLD_LIBRARY_PATH
 
 export PATH="$PATH:$HOME/script"
+export PATH="$PATH:$HOME/script/crux"
 
 export NODE_BINARY_PATH="$HOME/.nodeenv/amazon-0.12.10/bin/node"
 export I_WANT_NO_DEVTOOLS_SUPPORT_NOW_AND_FOREVER="NODE_BINARY_PATH"
@@ -106,3 +114,7 @@ export QUESTION_CATEGORIES_CONFIG="/workplace/ckkernan/tech-survey/src/TechSurve
 export TECH_SURVEY_STRUCTURE="/workplace/ckkernan/tech-survey/src/TechSurveyAnalyticsWebsite/rails-root/survey_14.json"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export LESS='-R'
+
+alias odin-proxy="ssh -fNL 2009:localhost:2009 ckkernan.aka.corp.amazon.com"

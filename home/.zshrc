@@ -11,6 +11,8 @@ fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 autoload -Uz compinit
 compinit
 
+export PATH="$HOME/bin:$PATH"
+
 if which brew > /dev/null; then export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"; fi
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -46,7 +48,7 @@ bindkey -v
 
 export BRAZIL_WORKSPACE_GITMODE=1
 
-export PATH="/apollo/env/SDETools/bin:$PATH"
+export PATH=$BRAZIL_CLI_BIN:$PATH
 alias bb='/apollo/env/SDETools/bin/brazil-build'
 alias br='/apollo/env/SDETools/bin/brazil-runtime-exec'
 alias br-3rd-party="/apollo/env/BrazilThirdPartyTool/bin/brazil-third-party-tool"
@@ -118,3 +120,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export LESS='-R'
 
 alias odin-proxy="ssh -fNL 2009:localhost:2009 ckkernan.aka.corp.amazon.com"
+
+export GK_INSTALL_DIR=$HOME/ws/gk
+source $HOME/ws/create-gk-aliases.sh
